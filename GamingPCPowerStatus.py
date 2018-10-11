@@ -16,7 +16,7 @@ try:
 except:
     PowerStatus = 'OFF'
 
-logPath = 'GamingPCPowerStatus.txt'
+logPath = '/home/pi/code/GamingPCPowerStatus.txt'
 
 if not os.path.exists(logPath):
     os.system("touch {}".format(logPath))
