@@ -1,4 +1,4 @@
-import sys
+import os
 import paramiko
 
 host = '192.168.1.200'
