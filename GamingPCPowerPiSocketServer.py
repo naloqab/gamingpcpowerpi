@@ -22,6 +22,12 @@ while True:
 
 	command = data
 
-	os.system(command)
+	if command == "GamingPCPowerStatus":
+		statusFile = open("GamingPCPowerStatus.txt", 'r')
+		GamingPCPowerStatus = statusFile.readline().strip()
+		conn.send(GamingPCPowerStatus)
+		
+	else:
+		os.system(command)
 
 	conn.close()
