@@ -14,4 +14,4 @@
 # stdin, stdout, stderr = ssh.exec_command(command)
 
 import os
-os.system("python3 GamingPCPowerButton.py")
+os.system("python3 /home/pi/code/GamingPCPowerButton.py 1")

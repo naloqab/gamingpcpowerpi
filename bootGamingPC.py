@@ -15,4 +15,4 @@
 # GPIO.output(3, openSwitch)
 
 import os
-os.system("python3 GamingPCPowerButton.py")
+os.system("python3 /home/pi/code/GamingPCPowerButton.py 1")
