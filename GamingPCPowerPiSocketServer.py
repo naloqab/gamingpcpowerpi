@@ -1,6 +1,7 @@
 import socket
 import time
 import os
+from datetime import datetime
 
 # emtpy host means localhost
 Host = ''
@@ -12,14 +13,14 @@ s.listen(1)
 
 while True:
 	try:
-		print("\nWaiting for client to connect..\n")
+		print(str(datetime.now().strftime("%H:%M:%S")) + " - Waiting for client to connect..\n", flush=True)
 
 		# script waits at this line until a client connects
 		conn, Address = s.accept()
 
-		print(Address, "is connected.")
+		print(str(datetime.now().strftime("%H:%M:%S")) + " - " + str(Address) + " is connected.\n", flush=True)
 		data = conn.recv(1024)
-		print("Data received:", data, "\n", flush=True)
+		print(str(datetime.now().strftime("%H:%M:%S")) + " - Data received: " + str(data) + "\n", flush=True)
 
 		command = data
 
@@ -27,13 +28,13 @@ while True:
 			statusFile = open("/home/pi/code/GamingPCPowerStatus.txt", 'r')
 			GamingPCPowerStatus = statusFile.readline().strip()
 			conn.send(GamingPCPowerStatus.encode('ascii'))
-			print("Sending", str(command.decode("ascii")), "\n")
+			print(str(datetime.now().strftime("%H:%M:%S")) + " - Sending " + str(command.decode("ascii")) + "\n", flush=True)
 
 		else:
 			os.system(command)
-			print("Running", str(command.decode("ascii")), "\n")
+			print(str(datetime.now().strftime("%H:%M:%S")) + " - Running " + str(command.decode("ascii")) + "\n", flush=True)
 
 	except Exception as e:
-		print("Error:", str(e), flush=True)
+		print(str(datetime.now().strftime("%H:%M:%S")) + " - Error: " + str(e), flush=True)
 
 	conn.close()
