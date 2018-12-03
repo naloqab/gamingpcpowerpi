@@ -7,9 +7,13 @@ from datetime import datetime
 Host = ''
 Port = 5009
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((Host, Port))
-s.listen(1)
+try:
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind((Host, Port))
+    s.listen(1)
+except Exception as e:
+    print(str(datetime.now().strftime("%H:%M:%S")) + " - Error: " + str(e), flush=True)
+    exit()
 
 while True:
 	try:
