@@ -1,6 +1,4 @@
-import socket
-import time
-import os
+import socket, time, os
 from datetime import datetime
 
 # emtpy host means localhost

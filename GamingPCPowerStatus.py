@@ -1,11 +1,10 @@
-import os
-import paramiko
+import os, paramiko
 from time import sleep
 
 host = '192.168.1.210'
 SSHPort = 22
 username = 'naloqab'
-password = 'Amber8599'
+password = os.environ["gaming_pc_password"]
 
 logPath = '/home/pi/code/GamingPCPowerStatus.txt'
 
